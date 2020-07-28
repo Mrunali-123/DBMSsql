@@ -1,0 +1,63 @@
+1. Display the minimum Status in the Supplier table.
+
+ans:-select min(status) "Minimum Status" from supplier;
+      
+2. Display the maximum Weight in the Parts table.
+
+ans:-select max(weight) "Maximum Weight" from parts;
+      
+3. Display the average Weight of the Parts.
+
+ans:-ans:-select avg(weight) "Average Weight" from parts;
+      
+4. Display the total Quantity sold for part ‘P1’.  
+
+ans:-select count(Qty) "Total Quantity" from supplier_parts_projects where `P#` ='P1';
+    
+5. Display the total Quantity sold for each part.
+
+ans:-select count(Qty) "Total Quantity" from supplier_parts_projects group by Qty;
+      
+6. Display the average Quantity sold for each part.
+
+ans:-select avg(Qty)  "Total Average" from  supplier_parts_projects;
+      
+7. Display the maximum Quantity sold for each part, provided the maximum Quantity is greater than 800. 
+
+ans:-select max(Qty) "Max Quantity" from supplier_parts_projects where Qty > 800;
+     
+8. Display the Status and the count of Suppliers with that Status.
+
+ans:-select status, count(status) "Status" from supplier;
+      
+9. Display the count of Projects going on in different cities. 
+
+ans:-select count(distinct city) "Count Of Projects" from projects;
+     
+10. What is the difference between COUNT(Status) and COUNT(*) 
+
+ans:-COUNT(Status)
+
+                COUNT(Status) evaluates the expression for each row in a set and returns the number of rows having a non-null values.
+	
+     COUNT(*):
+ 
+                COUNT(*) counts the number of items in a set. It includes NULL and duplicate values.
+		It returns total number of rows in the table.
+		
+		
+11. Display the Status and the Count of Suppliers with that Status in the following format as shown below:-   
+     Status   Count     
+        Ten   1     
+        Twenty   2     
+        Thirty   3  
+ans:-select case
+     when status='10' then 'TEN'
+     when status='20' then 'TWENTY'
+     when status='30' then 'THIRTY'
+     when status='40' then 'FOURTY'
+     else 'OTHER'
+     end RESULT 
+     ,count(status)
+     from SUPLIER
+     group by status;
