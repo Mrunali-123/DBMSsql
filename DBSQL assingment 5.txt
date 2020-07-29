@@ -11,7 +11,8 @@ ans:-select sname, city from salespeople where city='london' and comm>.10;
 3) Write a query on the Customers table whose output will exclude all customers
 with a rating <= 100, unless they are located in Rome.
 
-ans:-
+ans:-select * from customers where city='rome' or not rating <=100;
+
 
 4) What will be the output from the following query? 
 
